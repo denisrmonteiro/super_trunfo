@@ -20,12 +20,12 @@ Serão dados referentes a cidades e estados, sendo:
 int main () {
 
     // Variaveis para a cidade 1
-    char estado1[2] = "Y", codigoCarta1[3] = "01", nomeCidade1[50] = "Nome da cidade 1";
+    char estado1 = 'Y', codigoCarta1[3] = "01", nomeCidade1[50] = "Nome da cidade 1";
     int populacao1 = 0, pontosTuristicos1 = 0;
     float area1 = 0.0, pib1 = 0.0;
 
     // Variaveis para a cidade 2
-    char estado2[2] = "Z", codigoCarta2[3] = "01", nomeCidade2[50] = "Nome da cidade 2";
+    char estado2 = 'Z', codigoCarta2[3] = "01", nomeCidade2[50] = "Nome da cidade 2";
     int populacao2 = 1, pontosTuristicos2 = 1;
     float area2 = 1.0, pib2 = 1.0;
 
@@ -37,7 +37,7 @@ int main () {
 
     // Estado
     printf ("Digite o estado:\n");
-    scanf ("%s", estado1);
+    scanf (" %c", &estado1);
     printf ("\n");
 
     // Codigo da carta
@@ -76,7 +76,7 @@ int main () {
 
     // Estado
     printf ("Digite o estado:\n");
-    scanf ("%s", estado2);
+    scanf (" %c", &estado2);
     printf ("\n");
 
     // Codigo da carta
@@ -112,8 +112,8 @@ int main () {
 
     // Impressão dos dados da carta 1
     printf ("=============Dados da carta 1 ================\n");
-    printf ("Estado: %s\n", estado1);
-    printf ("Codigo da carta: %s%s\n", estado1, codigoCarta1);
+    printf ("Estado: %c\n", estado1);
+    printf ("Codigo da carta: %c%s\n", estado1, codigoCarta1);
     printf ("Nome da cidade: %s\n", nomeCidade1);
     printf ("Populacao: %d\n", populacao1);
     printf ("Area (km2): %.2f\n", area1);
@@ -122,8 +122,8 @@ int main () {
 
     // Impressão dos dados da carta 2
     printf ("\n=============Dados da carta 2 ================\n");
-    printf ("Estado: %s\n", estado2);
-    printf ("Codigo da carta: %s%s\n", estado2, codigoCarta2);
+    printf ("Estado: %c\n", estado2);
+    printf ("Codigo da carta: %c%s\n", estado2, codigoCarta2);
     printf ("Nome da cidade: %s\n", nomeCidade2);
     printf ("Populacao: %d\n", populacao2);
     printf ("Area (km2): %.2f\n", area2);
