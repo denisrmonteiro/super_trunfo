@@ -12,22 +12,47 @@ Serão dados referentes a cidades e estados, sendo:
 - PIB
 - Número de pontos turísticos
 
+Versão 2 - Objetivo: Calcular a densidade demográfica e a renda per capita da população de cada uma
+das 2 cidades
+Incluir as seguintes variáveis:
+- Densidade demográfica (float)
+- Renda Per Capita (float)
+
 */
 
 #include <stdio.h>
 
+
+float calculoDensidadeDemografica(int populacao, float area) {
+
+    float densidade = 0.0;
+
+    densidade = (float) populacao / area;
+
+    return densidade;
+}
+
+float calculoRendaPerCapita(float pib, int populacao) {
+
+    float rendaPerCapita = 0.0;
+
+    rendaPerCapita = pib / (float) populacao;
+
+    // Retorna a renda per capita em reais.
+    return rendaPerCapita * 1000000000;
+}
 
 int main () {
 
     // Variaveis para a cidade 1
     char estado1 = 'Y', codigoCarta1[3] = "01", nomeCidade1[50] = "Nome da cidade 1";
     int populacao1 = 0, pontosTuristicos1 = 0;
-    float area1 = 0.0, pib1 = 0.0;
+    float area1 = 0.0, pib1 = 0.0, rendaPerCapita1 = 0.0, densidadeDemo1 = 0.0;
 
     // Variaveis para a cidade 2
     char estado2 = 'Z', codigoCarta2[3] = "01", nomeCidade2[50] = "Nome da cidade 2";
     int populacao2 = 1, pontosTuristicos2 = 1;
-    float area2 = 1.0, pib2 = 1.0;
+    float area2 = 1.0, pib2 = 1.0, rendaPerCapita2 = 0.0, densidadeDemo2 = 0.0;
 
     printf ("---------------- JOGO SUPER TRUNFO (Nivel basico) ----------------\n\n");
     printf ("Entre com os dados para 2 cartas\n");
@@ -70,7 +95,13 @@ int main () {
     scanf ("%d", &pontosTuristicos1);
     printf ("\n");
 
+    // Chama cálculo de densidade demográfica para cidade 1
+    densidadeDemo1 = calculoDensidadeDemografica(populacao1, area1);
 
+    // Chama cálculo de renda per capita para cidade 1
+    rendaPerCapita1 = calculoRendaPerCapita(pib1, populacao1);
+
+    
     // Capturando dados da carta 2
     printf ("Carta 2\n");
 
@@ -109,6 +140,12 @@ int main () {
     scanf ("%d", &pontosTuristicos2);
     printf ("\n");
 
+    // Chama cálculo de densidade demográfica para cidade 2
+    densidadeDemo2 = calculoDensidadeDemografica(populacao2, area2);
+
+    // Chama cálculo de renda per capita para cidade 2
+    rendaPerCapita2 = calculoRendaPerCapita(pib2, populacao2);
+
 
     // Impressão dos dados da carta 1
     printf ("=============Dados da carta 1 ================\n");
@@ -119,7 +156,10 @@ int main () {
     printf ("Area (km2): %.2f\n", area1);
     printf ("PIB:  R$ %.2f bilhoes\n", pib1);
     printf ("Pontos turisticos: %d\n", pontosTuristicos1);
+    printf ("Densidade demografica: %.2f hab/km2\n", densidadeDemo1);
+    printf ("Renda Per Capita: R$ %.2f\n", rendaPerCapita1);
 
+    
     // Impressão dos dados da carta 2
     printf ("\n=============Dados da carta 2 ================\n");
     printf ("Estado: %c\n", estado2);
@@ -129,6 +169,9 @@ int main () {
     printf ("Area (km2): %.2f\n", area2);
     printf ("PIB:  R$ %.2f bilhoes\n", pib2);
     printf ("Pontos turisticos: %d\n", pontosTuristicos2);
+    printf ("Densidade demografica: %.2f hab/km2\n", densidadeDemo2);
+    printf ("Renda Per Capita: R$ %.2f\n", rendaPerCapita2);
 
+    
     return 0;
 }
